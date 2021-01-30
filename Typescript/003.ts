@@ -7,7 +7,14 @@ What is the largest prime factor of the number 600851475143 ?
 function isPrime(n: number) {
   // All numbers are divisible by 1 so skip
   // All numbers that are not prime are divisible by a number less than their square root
-  for(let i = 2; i <= Math.sqrt(n); i++) {
+
+  // First check if the number is even
+  if (n % 2 == 0) {
+    return false;
+  }
+
+  // And then only check against odd numbers
+  for(let i = 3; i <= Math.sqrt(n); i += 2) {
     if (n % i == 0) {
       // Is divisible, therefore not a prime
       return false;
