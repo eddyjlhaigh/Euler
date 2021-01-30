@@ -36,6 +36,9 @@ export default function problem008(sizeOfSlice: number) {
 
   for (let i = 0; i < largeNumberAsArray.length - sizeOfSlice; i++) {
     let subArray = largeNumberAsArray.slice(i, i + sizeOfSlice);
+    
+    // If there's a 0 in the array then it'll never be larger,
+    // checking for 0 is quicker than multiplying so worth the if statement
     if (!arrayContainsValue(subArray, "0")) {
       let product = productOfArray(subArray);
 
